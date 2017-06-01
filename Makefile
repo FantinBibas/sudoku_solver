@@ -7,13 +7,18 @@ CC	=	gcc
 
 RM	=	rm -f
 
-FLAGS	+=	-Wall -Wextra
+FLAGS	+=	-lm -Wall -Wextra
 
 CPPFLAGS	+=	-I include/ -Wall -Wextra
 
 NAME	=	sudoku
 
-SRCS	=	src/main.c
+SRCS	=	src/create_sudoku.c	\
+		src/display.c	\
+		src/error.c	\
+		src/get_next_line.c	\
+		src/main.c	\
+		src/sudoku_utils.c
 
 OBJDIR	=	objs/
 
