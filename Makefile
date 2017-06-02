@@ -23,7 +23,9 @@ SRCS	=	src/create_sudoku.c	\
 		src/only_possibility.c	\
 		src/solve.c	\
 		src/sudoku_utils.c	\
-		src/sudoku_utils2.c
+		src/sudoku_utils2.c	\
+		src/sudoku_utils3.c	\
+		src/twins.c
 
 OBJDIR	=	objs/
 

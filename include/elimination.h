@@ -9,7 +9,7 @@
 #  include <stdio.h>
 #  include "t_sudoku.h"
 
-int           is_char_possible(t_sudoku *, int, int, char);
 void          decay_str(char *);
+int           is_char_possible(t_sudoku *, int, int, char);
 
 #endif

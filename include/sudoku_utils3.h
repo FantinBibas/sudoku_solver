@@ -3,11 +3,11 @@
 |* https://github.com/FantinBibas/autoHeader *|
 \*********************************************/
 
-#ifndef SUDOKU_UTILS2_H_
-#  define SUDOKU_UTILS2_H_
+#ifndef SUDOKU_UTILS3_H_
+#  define SUDOKU_UTILS3_H_
 
 #  include "t_sudoku.h"
 
-void          decay_str(char *);
+int           is_possibility(t_sudoku_cell, char);
 
 #endif

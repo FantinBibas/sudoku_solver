@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 21:25:16 2017 Fantin Bibas
-** Last update Fri Jun  2 12:50:42 2017 Fantin Bibas
+** Last update Fri Jun  2 17:16:46 2017 Fantin Bibas
 */
 
 #include "display.h"
@@ -24,7 +24,7 @@ void	display_cell(t_sudoku_cell cell, int verbose)
       c = ' ';
     }
   else if (cell[2] == MAP_REA)
-    write(1, "\e[34m", 5);
+    write(1, "\e[39m", 5);
   else if (cell[2] == FOUND_REA)
     write(1, "\e[32m", 5);
   else if (cell[2] == POSS_REA)

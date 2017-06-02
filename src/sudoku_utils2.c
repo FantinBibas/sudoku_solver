@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Fri Jun  2 11:51:00 2017 Fantin Bibas
-** Last update Fri Jun  2 12:42:48 2017 Fantin Bibas
+** Last update Fri Jun  2 16:39:32 2017 Fantin Bibas
 */
 
 #include "sudoku_utils2.h"
@@ -37,6 +37,27 @@ int	is_possibility(t_sudoku_cell cell, char c)
   return (1);
 }
 
+int	is_field_col_possibility(t_sudoku *sudoku, int yf, int col, char c)
+{
+  int	xf;
+  int	i;
+  int	j;
+
+  xf = (col - col % sudoku->sqr) / sudoku->sqr;
+  i = -1;
+  while (++i < sudoku->sqr)
+    {
+      if (xf * sudoku->sqr + i == col)
+	continue ;
+      j = -1;
+      while (++j < sudoku->sqr)
+	if (!is_possibility(sudoku->sudoku[yf * sudoku->sqr + j]
+			    [xf * sudoku->sqr + i], c))
+	  return (0);
+    }
+  return (1);
+}
+
 int	is_field_possibility(t_sudoku *sudoku, int i, int j, char c)
 {
   int	x;
@@ -56,4 +77,18 @@ int	is_field_possibility(t_sudoku *sudoku, int i, int j, char c)
 	  return (0);
     }
   return (1);
+}
+
+int	remove_possibility(t_sudoku_cell cell, char c)
+{
+  int	i;
+
+  i = -1;
+  while (cell[++i])
+    if (cell[i] == c)
+      {
+	decay_str(cell + i);
+	return (1);
+      }
+  return (0);
 }

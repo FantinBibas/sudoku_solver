@@ -9,8 +9,8 @@
 #  include <stdio.h>
 #  include "t_sudoku.h"
 
-void          set_good_cell(t_sudoku_cell, char, char);
 int           is_possibility(t_sudoku_cell, char);
+void          set_good_cell(t_sudoku_cell, char, char);
 int           is_field_possibility(t_sudoku *, int, int, char);
 
 #endif
