@@ -3,12 +3,9 @@
 |* https://github.com/FantinBibas/autoHeader *|
 \*********************************************/
 
-#ifndef CREATE_SUDOKU_H_
-#  define CREATE_SUDOKU_H_
+#ifndef SUDOKU_UTILS2_H_
+#  define SUDOKU_UTILS2_H_
 
-#  include <stdlib.h>
-#  include <math.h>
-#  include <string.h>
 #  include "t_sudoku.h"
 
 

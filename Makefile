@@ -15,10 +15,14 @@ NAME	=	sudoku
 
 SRCS	=	src/create_sudoku.c	\
 		src/display.c	\
+		src/elimination.c	\
 		src/error.c	\
 		src/get_next_line.c	\
 		src/main.c	\
-		src/sudoku_utils.c
+		src/my_string.c	\
+		src/only_possibility.c	\
+		src/sudoku_utils.c	\
+		src/sudoku_utils2.c
 
 OBJDIR	=	objs/
 

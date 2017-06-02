@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 21:25:16 2017 Fantin Bibas
-** Last update Thu Jun  1 22:23:04 2017 Fantin Bibas
+** Last update Fri Jun  2 12:05:14 2017 Fantin Bibas
 */
 
 #include "display.h"
@@ -15,11 +15,17 @@ void	display_cell(t_sudoku_cell cell)
   char	c;
 
   if (!(c = get_cell(cell)))
-    c = ' ';
+    {
+      write(1, "\e[31m", 5);
+      write(1, cell, strlen(cell));
+      c = ' ';
+    }
   else if (cell[2] == MAP_REA)
     write(1, "\e[34m", 5);
   else if (cell[2] == FOUND_REA)
     write(1, "\e[32m", 5);
+  else if (cell[2] == POSS_REA)
+    write(1, "\e[35m", 5);
   write(1, &c, 1);
   write(1, "\e[39m", 5);
 }
@@ -38,29 +44,26 @@ void	disp_sep_line(uint size, uint sqr)
   write(1, "+\n", 2);
 }
 
-int	display_sudoku(t_sudoku sudoku, const char *alphabet)
+int	display_sudoku(t_sudoku *sudoku)
 {
-  uint	size;
-  uint	sqr;
   int	i;
   int	j;
 
-  size = strlen(alphabet);
-  sqr = sqrt((double)size);
   i = -1;
-  while (++i < (int)size)
+  while (++i < sudoku->size)
     {
-      if (i % sqr == 0)
-	disp_sep_line(size, sqr);
+      if (i % sudoku->sqr == 0)
+	disp_sep_line(sudoku->size, sudoku->sqr);
       j = -1;
-      while (++j < (int)size)
+      while (++j < sudoku->size)
 	{
-	  if (j % sqr == 0)
+	  if (j % sudoku->sqr == 0)
 	    write(1, "|", 1);
-	  display_cell(sudoku[i][j]);
+	  display_cell(sudoku->sudoku[i][j]);
 	}
       write(1, "|\n", 2);
     }
-  disp_sep_line(size, sqr);
+  disp_sep_line(sudoku->size, sudoku->sqr);
+  write(1, "\n", 1);
   return (0);
 }

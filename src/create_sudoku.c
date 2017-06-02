@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 19:55:11 2017 Fantin Bibas
-** Last update Thu Jun  1 22:17:39 2017 Fantin Bibas
+** Last update Thu Jun  1 23:13:50 2017 Fantin Bibas
 */
 
 #include "create_sudoku.h"
@@ -37,25 +37,24 @@ t_sudoku_cell	get_full_cell(const char *alphabet, int size)
   return (cell);
 }
 
-t_sudoku	create_sudoku(const char *alphabet)
+int		create_sudoku(t_sudoku *s)
 {
-  t_sudoku	sudoku;
   int		i;
   int		j;
-  int		size;
 
-  size = strlen(alphabet);
-  if ((sudoku = malloc(sizeof(char **) * size)) == NULL)
-    return (NULL);
+  s->size = strlen(s->alphabet);
+  s->sqr = sqrt((double)s->size);
+  if ((s->sudoku = malloc(sizeof(char **) * s->size)) == NULL)
+    return (-1);
   i = -1;
-  while (++i < size)
+  while (++i < s->size)
     {
-      if ((sudoku[i] = malloc(sizeof(char *) * size)) == NULL)
-	return (NULL);
+      if ((s->sudoku[i] = malloc(sizeof(char *) * s->size)) == NULL)
+	return (-1);
       j = -1;
-      while (++j < size)
-	if ((sudoku[i][j] = get_full_cell(alphabet, size)) == NULL)
-	  return (NULL);
+      while (++j < s->size)
+	if ((s->sudoku[i][j] = get_full_cell(s->alphabet, s->size)) == NULL)
+	  return (-1);
     }
-  return (sudoku);
+  return (0);
 }

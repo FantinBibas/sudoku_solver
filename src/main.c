@@ -5,29 +5,35 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 19:49:12 2017 Fantin Bibas
-** Last update Thu Jun  1 22:18:04 2017 Fantin Bibas
+** Last update Fri Jun  2 12:30:50 2017 Fantin Bibas
 */
 
 #include "main.h"
 
-int	line_parse(t_sudoku sudoku, char *input, int line, const char *alphabet)
+int	line_parse(t_sudoku *sudoku, char *input, int line)
 {
   int	i;
-  uint	size;
   int	j;
+  char	ok;
 
-  size = strlen(alphabet);
-  if (strlen(input) != size)
+  if ((int)strlen(input) != sudoku->size)
     return (i_err("The line is not at the good size", -1));
   i = -1;
-  while (++i < (int)size)
+  while (++i < sudoku->size)
     if (input[i] != '0')
       {
 	j = i;
 	while (input[++j])
 	  if (input[i] == input[j])
 	    return (i_err("The line is invalid (doublon)", -1));
-	set_good_cell(sudoku[line][i], input[i], MAP_REA);
+	j = -1;
+	ok = 0;
+	while (sudoku->alphabet[++j])
+	  if (input[i] == sudoku->alphabet[j] && (ok = 1) == 1)
+	    break;
+	if (!ok)
+	  return (i_err("The line is invalid wrong char", -1));
+	set_good_cell(sudoku->sudoku[line][i], input[i], MAP_REA);
       }
   return (0);
 }
@@ -59,18 +65,27 @@ int		main(int ac, char **av)
   t_sudoku	sudoku;
   int		i;
   char		*input;
-  const char	*alphabet;
-  uint		size;
+  char		impossible;
 
-  alphabet = DEFAULT_ALPHA;
-  if ((ac > 1 && (alphabet = check_alphabet(av[1])) == NULL) ||
-      (sudoku = create_sudoku(alphabet)) == NULL)
+  sudoku.alphabet = DEFAULT_ALPHA;
+  if ((ac > 1 && (sudoku.alphabet = check_alphabet(av[1])) == NULL) ||
+      create_sudoku(&sudoku))
     return (84);
-  size = strlen(alphabet);
   i = -1;
-  while (++i < (int)size && (input = get_next_line(0)) != NULL)
-    if (line_parse(sudoku, input, i, alphabet))
+  while (++i < sudoku.size && (input = get_next_line(0)) != NULL)
+    if (line_parse(&sudoku, input, i))
       i--;
-  display_sudoku(sudoku, alphabet);
+  if (input == NULL)
+    return (84);
+  printf("Before:\n");
+  display_sudoku(&sudoku);
+  impossible = 0;
+  while (!is_sudoku_ok(&sudoku) && !impossible)
+    {
+      impossible = 1;
+      impossible = (simple_elimination(&sudoku) ? 0 : impossible);
+      impossible = (only_possibility(&sudoku) ? 0 : impossible);
+    }
+  display_sudoku(&sudoku);
   return (0);
 }

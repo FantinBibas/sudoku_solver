@@ -7,7 +7,6 @@
 #  define DISPLAY_H_
 
 #  include <unistd.h>
-#  include <math.h>
 #  include <string.h>
 #  include "t_sudoku.h"
 

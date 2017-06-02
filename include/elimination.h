@@ -3,13 +3,13 @@
 |* https://github.com/FantinBibas/autoHeader *|
 \*********************************************/
 
-#ifndef CREATE_SUDOKU_H_
-#  define CREATE_SUDOKU_H_
+#ifndef ELIMINATION_H_
+#  define ELIMINATION_H_
 
-#  include <stdlib.h>
-#  include <math.h>
-#  include <string.h>
+#  include <stdio.h>
 #  include "t_sudoku.h"
 
+int           is_char_possible(t_sudoku *, int, int, char);
+void          decay_str(char *);
 
 #endif
