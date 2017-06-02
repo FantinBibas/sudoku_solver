@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Fri Jun  2 11:51:00 2017 Fantin Bibas
-** Last update Fri Jun  2 12:28:00 2017 Fantin Bibas
+** Last update Fri Jun  2 12:42:48 2017 Fantin Bibas
 */
 
 #include "sudoku_utils2.h"
@@ -20,7 +20,7 @@ int	is_sudoku_ok(t_sudoku *sudoku)
     {
       j = -1;
       while (++j < sudoku->size)
-	if (!sudoku->sudoku[i][j][1])
+	if (sudoku->sudoku[i][j][1] != 0)
 	  return (0);
     }
   return (1);

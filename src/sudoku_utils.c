@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 21:17:59 2017 Fantin Bibas
-** Last update Fri Jun  2 00:09:15 2017 Fantin Bibas
+** Last update Fri Jun  2 12:33:44 2017 Fantin Bibas
 */
 
 #include "sudoku_utils.h"
@@ -31,7 +31,7 @@ int	is_line_char_possible(t_sudoku *sudoku, int line, char c)
 int	is_column_char_possible(t_sudoku *sudoku, int col, char c)
 {
   int	i;
-  
+
   i = - 1;
   while (++i < sudoku->size)
     if (get_cell(sudoku->sudoku[col][i]) == c)
@@ -43,7 +43,7 @@ int	is_field_char_possible(t_sudoku *sudoku, int i, int j, char c)
 {
   int	io;
   int	jo;
-  
+
   i -= i % sudoku->sqr;
   j -= j % sudoku->sqr;
   io = -1;

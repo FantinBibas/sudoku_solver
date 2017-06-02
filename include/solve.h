@@ -3,13 +3,14 @@
 |* https://github.com/FantinBibas/autoHeader *|
 \*********************************************/
 
-#ifndef CREATE_SUDOKU_H_
-#  define CREATE_SUDOKU_H_
+#ifndef SOLVE_H_
+#  define SOLVE_H_
 
-#  include <math.h>
-#  include <stdlib.h>
-#  include <string.h>
+#  include <stdio.h>
 #  include "t_sudoku.h"
 
+int           is_sudoku_ok(t_sudoku *);
+int           simple_elimination(t_sudoku *);
+int           only_possibility(t_sudoku *);
 
 #endif

@@ -21,6 +21,7 @@ SRCS	=	src/create_sudoku.c	\
 		src/main.c	\
 		src/my_string.c	\
 		src/only_possibility.c	\
+		src/solve.c	\
 		src/sudoku_utils.c	\
 		src/sudoku_utils2.c
 

@@ -5,19 +5,22 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 21:25:16 2017 Fantin Bibas
-** Last update Fri Jun  2 12:05:14 2017 Fantin Bibas
+** Last update Fri Jun  2 12:50:42 2017 Fantin Bibas
 */
 
 #include "display.h"
 
-void	display_cell(t_sudoku_cell cell)
+void	display_cell(t_sudoku_cell cell, int verbose)
 {
   char	c;
 
   if (!(c = get_cell(cell)))
     {
-      write(1, "\e[31m", 5);
-      write(1, cell, strlen(cell));
+      if (verbose)
+	{
+	  write(1, "\e[31m", 5);
+	  write(1, cell, strlen(cell));
+	}
       c = ' ';
     }
   else if (cell[2] == MAP_REA)
@@ -44,7 +47,7 @@ void	disp_sep_line(uint size, uint sqr)
   write(1, "+\n", 2);
 }
 
-int	display_sudoku(t_sudoku *sudoku)
+int	display_sudoku(t_sudoku *sudoku, int verbose)
 {
   int	i;
   int	j;
@@ -59,7 +62,7 @@ int	display_sudoku(t_sudoku *sudoku)
 	{
 	  if (j % sudoku->sqr == 0)
 	    write(1, "|", 1);
-	  display_cell(sudoku->sudoku[i][j]);
+	  display_cell(sudoku->sudoku[i][j], verbose);
 	}
       write(1, "|\n", 2);
     }
