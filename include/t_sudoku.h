@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 20:28:11 2017 Fantin Bibas
-** Last update Fri Jun  2 12:04:40 2017 Fantin Bibas
+** Last update Sat Jun  3 12:10:00 2017 Fantin Bibas
 */
 
 #ifndef T_SUDOKU_H_
@@ -29,6 +29,7 @@ struct		s_sudoku
   int		sqr;
   char		***sudoku;
   const char	*alphabet;
+  char		verbose;
 };
 
 #endif /* T_SUDOKU_H_ */

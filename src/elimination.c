@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 22:45:13 2017 Fantin Bibas
-** Last update Fri Jun  2 12:31:10 2017 Fantin Bibas
+** Last update Sat Jun  3 12:26:50 2017 Fantin Bibas
 */
 
 #include "elimination.h"
@@ -54,6 +54,7 @@ int	simple_elimination(t_sudoku *sudoku)
   i = 0;
   while (elimination_pass(sudoku))
     i++;
-  printf("Elimination: %i pass\n", i + 1);
+  if (sudoku->verbose)
+    printf("Elimination: %i pass\n", i + 1);
   return (i);
 }

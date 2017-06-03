@@ -1,4 +1,3 @@
-
 /*
 ** main.c for Sudoku in /home/neodar/Epitech/CPE_2016/epitech_CPE_2016_sudoku
 ** 
@@ -6,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 19:49:12 2017 Fantin Bibas
-** Last update Fri Jun  2 17:22:43 2017 Fantin Bibas
+** Last update Sat Jun  3 12:21:31 2017 Fantin Bibas
 */
 
 #include "main.h"
@@ -61,15 +60,17 @@ const char	*check_alphabet(const char *alphabet)
   return (alphabet);
 }
 
-int		main(int ac, char **av)
+int		main(int ac, const char **av)
 {
   t_sudoku	sudoku;
   int		i;
   char		*input;
 
   sudoku.alphabet = DEFAULT_ALPHA;
-  if ((ac > 1 && (sudoku.alphabet = check_alphabet(av[1])) == NULL) ||
-      create_sudoku(&sudoku))
+  sudoku.verbose = 0;
+  if ((i = parse_flags(&sudoku, ac, av)) == 1)
+    return (0);
+  else if (i == -1 || create_sudoku(&sudoku))
     return (84);
   i = -1;
   while (++i < sudoku.size && (input = get_next_line(0)) != NULL)
@@ -78,8 +79,8 @@ int		main(int ac, char **av)
   if (input == NULL)
     return (84);
   printf("Before:\n");
-  display_sudoku(&sudoku, 0);
+  display_sudoku(&sudoku);
   solve_sudoku(&sudoku);
-  display_sudoku(&sudoku, 0);
+  display_sudoku(&sudoku);
   return (0);
 }

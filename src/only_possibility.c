@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Fri Jun  2 11:47:41 2017 Fantin Bibas
-** Last update Fri Jun  2 12:31:18 2017 Fantin Bibas
+** Last update Sat Jun  3 12:27:01 2017 Fantin Bibas
 */
 
 #include "only_possibility.h"
@@ -105,6 +105,7 @@ int	only_possibility(t_sudoku *sudoku)
   i = 0;
   while (possibility_pass(sudoku))
     i++;
-  printf("Possibility: %i pass\n", i + 1);
+  if (sudoku->verbose)
+    printf("Possibility: %i pass\n", i + 1);
   return (i);
 }

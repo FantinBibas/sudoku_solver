@@ -9,9 +9,9 @@
 #  include <stdio.h>
 #  include "t_sudoku.h"
 
-int           simple_elimination(t_sudoku *);
-int           is_sudoku_ok(t_sudoku *);
 int           twins_elimination(t_sudoku *);
+int           is_sudoku_ok(t_sudoku *);
 int           only_possibility(t_sudoku *);
+int           simple_elimination(t_sudoku *);
 
 #endif

@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Jun  1 21:25:16 2017 Fantin Bibas
-** Last update Fri Jun  2 17:16:46 2017 Fantin Bibas
+** Last update Sat Jun  3 12:22:13 2017 Fantin Bibas
 */
 
 #include "display.h"
@@ -47,7 +47,7 @@ void	disp_sep_line(uint size, uint sqr)
   write(1, "+\n", 2);
 }
 
-int	display_sudoku(t_sudoku *sudoku, int verbose)
+int	display_sudoku(t_sudoku *sudoku)
 {
   int	i;
   int	j;
@@ -62,7 +62,7 @@ int	display_sudoku(t_sudoku *sudoku, int verbose)
 	{
 	  if (j % sudoku->sqr == 0)
 	    write(1, "|", 1);
-	  display_cell(sudoku->sudoku[i][j], verbose);
+	  display_cell(sudoku->sudoku[i][j], sudoku->verbose);
 	}
       write(1, "|\n", 2);
     }

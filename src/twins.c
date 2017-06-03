@@ -5,7 +5,7 @@
 ** Login   <fantin.bibas@epitech.eu@epitech.net>
 ** 
 ** Started on  Fri Jun  2 13:00:33 2017 Fantin Bibas
-** Last update Fri Jun  2 17:16:00 2017 Fantin Bibas
+** Last update Sat Jun  3 12:27:10 2017 Fantin Bibas
 */
 
 #include "twins.h"
@@ -91,6 +91,7 @@ int	twins_elimination(t_sudoku *sudoku)
 	    }	  
 	}
     }
-  printf("Twins removed %i possibilities\n", total);
+  if (sudoku->verbose)
+    printf("Twins removed %i possibilities\n", total);
   return (total);
 }

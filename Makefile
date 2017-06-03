@@ -17,6 +17,7 @@ SRCS	=	src/create_sudoku.c	\
 		src/display.c	\
 		src/elimination.c	\
 		src/error.c	\
+		src/flags.c	\
 		src/get_next_line.c	\
 		src/main.c	\
 		src/my_string.c	\

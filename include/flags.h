@@ -3,13 +3,13 @@
 |* https://github.com/FantinBibas/autoHeader *|
 \*********************************************/
 
-#ifndef CREATE_SUDOKU_H_
-#  define CREATE_SUDOKU_H_
+#ifndef FLAGS_H_
+#  define FLAGS_H_
 
+#  include <stdio.h>
 #  include <string.h>
-#  include <math.h>
-#  include <stdlib.h>
 #  include "t_sudoku.h"
 
+const         char *check_alphabet(const char *);
 
 #endif

@@ -6,18 +6,19 @@
 #ifndef MAIN_H_
 #  define MAIN_H_
 
-#  include <stdlib.h>
-#  include <math.h>
 #  include <stdio.h>
+#  include <math.h>
 #  include <string.h>
+#  include <stdlib.h>
 #  include "t_sudoku.h"
 
-int           create_sudoku(t_sudoku *);
-int           display_sudoku(t_sudoku *, int);
-int           i_err(const char *, int);
+int           parse_flags(t_sudoku *, int, const char **);
 void          solve_sudoku(t_sudoku *);
+int           create_sudoku(t_sudoku *);
 void          *n_err(const char *);
-void          set_good_cell(t_sudoku_cell, char, char);
 char          *get_next_line(const int);
+void          set_good_cell(t_sudoku_cell, char, char);
+int           display_sudoku(t_sudoku *);
+int           i_err(const char *, int);
 
 #endif
